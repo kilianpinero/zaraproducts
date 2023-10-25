@@ -1,0 +1,11 @@
+com\zproducts\ZaraProductsApplication.class
+com\zproducts\infrastructure\rest\ProductsController.class
+com\zprices\generatedsources\model\Product.class
+com\zproducts\application\ProductsService.class
+com\zprices\generatedsources\api\ProductpricesApi.class
+com\zproducts\infrastructure\adapter\ProductMapper.class
+com\zproducts\application\ProductProviderServiceImpl.class
+com\zproducts\infrastructure\adapter\ProductRepository.class
+com\zprices\generatedsources\api\ApiUtil.class
+com\zprices\generatedsources\model\Error.class
+com\zproducts\infrastructure\adapter\ProductEntity.class
