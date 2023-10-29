@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.zproducts.service.ProductServiceTests
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.924 s - in com.zproducts.service.ProductServiceTests
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.065 s - in com.zproducts.service.ProductServiceTests

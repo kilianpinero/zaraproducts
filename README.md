@@ -78,7 +78,7 @@ curl --location 'http://localhost:8080/api/v1/productprices?applyDate=2020-06-15
 ```
 Response:
 ```json
-[
+
     {
         "product_id": 35455,
         "brand_id": 1,
@@ -86,16 +86,7 @@ Response:
         "start_date": "2020-06-14 00:00:00",
         "end_date": "2020-12-31 23:59:59",
         "price": 35.5
-    },
-    {
-        "product_id": 35455,
-        "brand_id": 1,
-        "price_list": 3,
-        "start_date": "2020-06-15 00:00:00",
-        "end_date": "2020-06-15 11:00:00",
-        "price": 30.5
     }
-]
 ```
 
 ### Running Tests

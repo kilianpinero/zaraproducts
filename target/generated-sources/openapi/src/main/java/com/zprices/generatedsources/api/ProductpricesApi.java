@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-25T21:54:07.947335400+02:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-29T08:32:44.103001200+01:00[Europe/Madrid]")
 @Validated
 @Tag(name = "productprices", description = "the productprices API")
 public interface ProductpricesApi {
@@ -79,7 +79,7 @@ public interface ProductpricesApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"end_date\" : \"end_date\", \"price_list\" : 1, \"price\" : 35.5, \"product_id\" : 1, \"brand_id\" : 35455, \"start_date\" : \"start_date\" }";
+                    String exampleString = "{ \"end_date\" : \"end_date\", \"price_list\" : 1, \"price\" : 35.5, \"product_id\" : 1, \"priority\" : 1, \"brand_id\" : 35455, \"start_date\" : \"start_date\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

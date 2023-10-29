@@ -1,11 +1,12 @@
 package com.zproducts.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
-
+import com.zprices.generatedsources.model.Product;
+import com.zproducts.application.ports.out.ProductRepository;
+import com.zproducts.application.service.ProductProviderServiceImpl;
+import com.zproducts.infrastructure.mapper.ProductMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,112 +14,39 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.zprices.generatedsources.model.Product;
-import com.zproducts.application.ProductProviderServiceImpl;
-import com.zproducts.infrastructure.adapter.ProductMapper;
-import com.zproducts.infrastructure.adapter.ProductRepository;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
 @ActiveProfiles("test")
 public class ProductServiceTests {
 
-    
-	@Autowired
-	private ProductRepository repository;
-	@Autowired
-	private ProductMapper mapper;
+    @Autowired
+    private ProductRepository repository;
 
-	private ProductProviderServiceImpl service;
-	
-	@BeforeEach
-	public void setUp() {
-		MockitoAnnotations.openMocks(this);
-		service = new ProductProviderServiceImpl(repository, mapper);
-	}
+    @Autowired
+    private ProductMapper mapper;
 
-    @Test
-    public void testGetProductsReturnsEmptyList() {
-        String applyDate = "2020-01-15 00:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
+    private ProductProviderServiceImpl service;
 
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().isEmpty());
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        service = new ProductProviderServiceImpl(repository, mapper);
     }
 
-    @Test
-    public void testGetProductsReturnsProductListWhenDay14At10() {
-        String applyDate = "2020-06-14 10:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
-
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+    @ParameterizedTest(name = "Test {index}: petición con fecha {0} del producto {1} para la brand {2} (ZARA)")
+    @CsvSource({
+            "2020-06-14 10:00:00, 35455, 1",
+            "2020-06-14 16:00:00, 35455, 1",
+            "2020-06-14 21:00:00, 35455, 1",
+            "2020-06-15 10:00:00, 35455, 1",
+            "2020-06-16 21:00:00, 35455, 1"
+    })
+    public void testGetProductsReturnsProductList(String applyDate, Integer productId, Integer brandId) {
+        List<Product> products = service.getProducts(applyDate, productId, brandId);
+        ResponseEntity<List<Product>> response = new ResponseEntity<>(products, HttpStatus.OK);
         assertFalse(response.getBody().isEmpty());
     }
-    
-    @Test
-    public void testGetProductsReturnsProductListWhenDay14At16() {
-        String applyDate = "2020-06-14 10:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
-
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertFalse(response.getBody().isEmpty());
-    }
-    
-    @Test
-    public void testGetProductsReturnsProductListWhenDay14At21() {
-        String applyDate = "2020-06-14 21:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
-
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertFalse(response.getBody().isEmpty());
-    }
-    
-    @Test
-    public void testGetProductsReturnsProductListWhenDay15At10() {
-        String applyDate = "2020-06-15 10:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
-
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertFalse(response.getBody().isEmpty());
-    }
-    
-    @Test
-    public void testGetProductsReturnsProductListWhenDay16At21() {
-        String applyDate = "2020-06-16 21:00:00";
-        Integer productId = 35455;
-        Integer brandId = 1;
-
-        List<Product> products = service.getProductsByProductIdAndBranchIdAndApplyDate(applyDate, productId, brandId);
-        ResponseEntity<List<Product>> response = new ResponseEntity<>(products,HttpStatus.OK);
-
-        // Assert
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertFalse(response.getBody().isEmpty());
-    }
-
-
 }

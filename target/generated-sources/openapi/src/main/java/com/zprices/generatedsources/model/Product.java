@@ -17,7 +17,7 @@ import javax.annotation.Generated;
  * Product
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-25T21:54:07.947335400+02:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-29T08:32:44.103001200+01:00[Europe/Madrid]")
 public class Product {
 
   @JsonProperty("product_id")
@@ -37,6 +37,9 @@ public class Product {
 
   @JsonProperty("price")
   private Double price;
+
+  @JsonProperty("priority")
+  private Integer priority;
 
   public Product productId(Integer productId) {
     this.productId = productId;
@@ -152,6 +155,25 @@ public class Product {
     this.price = price;
   }
 
+  public Product priority(Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * Get priority
+   * @return priority
+  */
+  
+  @Schema(name = "priority", example = "1", required = false)
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -166,12 +188,13 @@ public class Product {
         Objects.equals(this.priceList, product.priceList) &&
         Objects.equals(this.startDate, product.startDate) &&
         Objects.equals(this.endDate, product.endDate) &&
-        Objects.equals(this.price, product.price);
+        Objects.equals(this.price, product.price) &&
+        Objects.equals(this.priority, product.priority);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productId, brandId, priceList, startDate, endDate, price);
+    return Objects.hash(productId, brandId, priceList, startDate, endDate, price, priority);
   }
 
   @Override
@@ -184,6 +207,7 @@ public class Product {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("}");
     return sb.toString();
   }
