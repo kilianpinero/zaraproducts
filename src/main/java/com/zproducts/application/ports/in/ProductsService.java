@@ -1,8 +1,6 @@
 package com.zproducts.application.ports.in;
 
-import com.zprices.generatedsources.model.Product;
-
-import java.util.List;
+import com.zproducts.generatedsources.model.Product;
 
 /**
  * Service that provides a list of products
@@ -15,6 +13,6 @@ public interface ProductsService {
 	 * @return List of products
 	 * @throws IllegalStateException
 	 */
-	List<Product> getProducts(String applyDate, Integer productId, Integer brandId) throws IllegalStateException;
+	Product getProducts(String applyDate, Integer productId, Integer brandId) throws IllegalStateException;
 
 }

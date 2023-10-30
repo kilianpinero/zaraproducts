@@ -1,9 +1,8 @@
 package com.zproducts.infrastructure.mapper;
 
+import com.zproducts.generatedsources.model.Product;
 import com.zproducts.infrastructure.entity.ProductEntity;
 import org.springframework.stereotype.Service;
-
-import com.zprices.generatedsources.model.Product;
 
 /**
  * Mapper for entity and dto

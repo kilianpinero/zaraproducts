@@ -110,8 +110,8 @@
 		            <configuration>
 		                <inputSpec>${project.basedir}/src/main/resources/zara-api.yaml</inputSpec>
 		                <generatorName>spring</generatorName>
-		                <apiPackage>com.zprices.generatedsources.api</apiPackage>
-		                <modelPackage>com.zprices.generatedsources.model</modelPackage>
+		                <apiPackage>com.zproducts.generatedsources.api</apiPackage>
+		                <modelPackage>com.zproducts.generatedsources.model</modelPackage>
 		                <generateApiTests>true</generateApiTests>
 		                <configOptions>
 		                    <openApiNullable>false</openApiNullable>

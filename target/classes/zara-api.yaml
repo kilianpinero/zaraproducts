@@ -46,9 +46,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items:
-                  $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/Product'
         '400':
           description: Bad Request
           content:
