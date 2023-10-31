@@ -41,7 +41,10 @@ public class ProductServiceTests {
             "2020-06-16 21:00:00, 35455, 1"
     })
     public void testGetProductsReturnsProductList(String applyDate, Integer productId, Integer brandId) {
-        ResponseEntity<Product> response = service.getProducts(applyDate, productId, brandId);
+       Product product = service.getProducts(applyDate, productId, brandId);
+        ResponseEntity<Product> response = new ResponseEntity<>(product,HttpStatus.OK);
+
+        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

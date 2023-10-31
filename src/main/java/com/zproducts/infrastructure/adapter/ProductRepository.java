@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.zproducts.application.ports.out;
+package com.zproducts.infrastructure.adapter;
 
 import com.zproducts.infrastructure.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

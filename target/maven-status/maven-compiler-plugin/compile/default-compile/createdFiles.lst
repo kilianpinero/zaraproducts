@@ -1,12 +1,13 @@
 com\zproducts\application\service\ProductProviderServiceImpl.class
 com\zproducts\rest\ProductsController.class
 com\zproducts\ZaraProductsApplication.class
+com\zproducts\application\ports\out\ProductServiceOut.class
 com\zproducts\application\ports\in\ProductsService.class
 com\zproducts\generatedsources\model\Error.class
 com\zproducts\infrastructure\adapter\ProductRepositoryServiceImpl.class
 com\zproducts\infrastructure\entity\ProductEntity.class
 com\zproducts\generatedsources\api\ProductpricesApi.class
-com\zproducts\application\ports\out\ProductRepository.class
+com\zproducts\infrastructure\adapter\ProductRepository.class
 com\zproducts\infrastructure\mapper\ProductMapper.class
 com\zproducts\generatedsources\model\Product.class
 com\zproducts\generatedsources\api\ApiUtil.class

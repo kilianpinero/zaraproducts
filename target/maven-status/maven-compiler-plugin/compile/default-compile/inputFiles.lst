@@ -1,12 +1,13 @@
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\infrastructure\entity\ProductEntity.java
+C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\infrastructure\adapter\ProductRepository.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\target\generated-sources\openapi\src\main\java\com\zproducts\generatedsources\api\ProductpricesApi.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\target\generated-sources\openapi\src\main\java\com\zproducts\generatedsources\model\Error.java
-C:\Users\Kilian\IdeaProjects\zaraproducts\target\generated-sources\openapi\src\main\java\com\zproducts\generatedsources\api\ApiUtil.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\application\ports\in\ProductsService.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\infrastructure\mapper\ProductMapper.java
+C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\application\ports\out\ProductServiceOut.java
+C:\Users\Kilian\IdeaProjects\zaraproducts\target\generated-sources\openapi\src\main\java\com\zproducts\generatedsources\api\ApiUtil.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\rest\ProductsController.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\application\service\ProductProviderServiceImpl.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\infrastructure\adapter\ProductRepositoryServiceImpl.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\ZaraProductsApplication.java
 C:\Users\Kilian\IdeaProjects\zaraproducts\target\generated-sources\openapi\src\main\java\com\zproducts\generatedsources\model\Product.java
-C:\Users\Kilian\IdeaProjects\zaraproducts\src\main\java\com\zproducts\application\ports\out\ProductRepository.java

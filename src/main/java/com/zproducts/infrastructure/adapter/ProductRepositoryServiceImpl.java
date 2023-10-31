@@ -1,6 +1,6 @@
 package com.zproducts.infrastructure.adapter;
 
-import com.zproducts.application.ports.out.ProductRepository;
+import com.zproducts.application.ports.out.ProductServiceOut;
 import com.zproducts.infrastructure.entity.ProductEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +13,7 @@ import java.util.List;
  * Service layer to retrieve repository product info
  */
 @Service
-public class ProductRepositoryServiceImpl {
+public class ProductRepositoryServiceImpl implements ProductServiceOut {
 
     private static final Logger logger = LogManager.getLogger(ProductRepositoryServiceImpl.class);
     private ProductRepository repository;
@@ -23,6 +23,7 @@ public class ProductRepositoryServiceImpl {
         this.repository = repository;
     }
 
+    @Override
     public ProductEntity getProductFromRepo(Integer productId, Integer brandId, String applyDate) {
         List<ProductEntity> productEntityList = repository.findProductsByProductIdAndBrandIdAndDate(productId, brandId, applyDate);
         if (productEntityList == null) {
