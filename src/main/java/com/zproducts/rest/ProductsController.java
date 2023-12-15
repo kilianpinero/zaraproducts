@@ -9,22 +9,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/v1")
 public class ProductsController implements ProductpricesApi {
 
-	private ProductsService service;
+    private final ProductsService service;
 
-	@Autowired
-	public ProductsController(ProductsService service) {
-		this.service = service;
-	}
+    @Autowired
+    public ProductsController(ProductsService service) {
+        this.service = service;
+    }
 
 
-	@Override
-	public ResponseEntity<Product> getProducts(String applyDate, Integer productId, Integer brandId) {
-		Product product = service.getProducts(applyDate, productId, brandId);
-		return new ResponseEntity<>(product, HttpStatus.OK);
-	}
+    @Override
+    public ResponseEntity<Product> getProducts(String applyDate, Integer productId, Integer brandId) {
+        Optional<Product> product = service.getProducts(applyDate, productId, brandId);
+        return new ResponseEntity<>(product.get(), HttpStatus.OK);
+    }
 }

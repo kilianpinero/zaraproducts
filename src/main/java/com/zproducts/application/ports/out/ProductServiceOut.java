@@ -2,6 +2,8 @@ package com.zproducts.application.ports.out;
 
 import com.zproducts.infrastructure.entity.ProductEntity;
 
+import java.util.Optional;
+
 /**
  * Interface of domain outlet
  */
@@ -11,10 +13,10 @@ public interface ProductServiceOut {
     /**
      * Retrieves product form repo
      *
-     * @param productId
-     * @param brandId
-     * @param applyDate
-     * @return
+     * @param productId Product Id
+     * @param brandId   Brand Id
+     * @param applyDate Apply Date
+     * @return Returns Product Entity data
      */
-    public ProductEntity getProductFromRepo(Integer productId, Integer brandId, String applyDate);
+    Optional<ProductEntity> getProductFromRepo(Integer productId, Integer brandId, String applyDate);
 }

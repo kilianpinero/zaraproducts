@@ -1,8 +1,12 @@
+com\zproducts\application\exception\RequestExceptionHandler.class
 com\zproducts\application\service\ProductProviderServiceImpl.class
 com\zproducts\rest\ProductsController.class
 com\zproducts\ZaraProductsApplication.class
+com\zproducts\application\exception\ErrorResponse.class
+com\zproducts\infrastructure\mapper\ProductEntityMapper.class
 com\zproducts\application\ports\out\ProductServiceOut.class
 com\zproducts\application\ports\in\ProductsService.class
+com\zproducts\infrastructure\entity\ProductEntity$ProductEntityBuilder.class
 com\zproducts\generatedsources\model\Error.class
 com\zproducts\infrastructure\adapter\ProductRepositoryServiceImpl.class
 com\zproducts\infrastructure\entity\ProductEntity.class

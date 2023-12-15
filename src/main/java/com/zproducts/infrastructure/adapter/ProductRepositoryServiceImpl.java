@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service layer to retrieve repository product info
@@ -16,7 +17,7 @@ import java.util.List;
 public class ProductRepositoryServiceImpl implements ProductServiceOut {
 
     private static final Logger logger = LogManager.getLogger(ProductRepositoryServiceImpl.class);
-    private ProductRepository repository;
+    private final ProductRepository repository;
 
     @Autowired
     public ProductRepositoryServiceImpl(ProductRepository repository) {
@@ -24,21 +25,19 @@ public class ProductRepositoryServiceImpl implements ProductServiceOut {
     }
 
     @Override
-    public ProductEntity getProductFromRepo(Integer productId, Integer brandId, String applyDate) {
-        List<ProductEntity> productEntityList = repository.findProductsByProductIdAndBrandIdAndDate(productId, brandId, applyDate);
-        if (productEntityList == null) {
+    public Optional<ProductEntity> getProductFromRepo(Integer productId, Integer brandId, String applyDate)  {
+        List<ProductEntity> productEntityList = repository.findByProductIdAndBrandIdAndEndDateIsGreaterThanEqualAndStartDateIsLessThanEqual(productId, brandId, applyDate, applyDate);
+        if (productEntityList == null || productEntityList.isEmpty()) {
             logger.error("Something went wrong when accessing data.");
-            throw new IllegalStateException("Something went wrong when accessing data.");
+            throw new IndexOutOfBoundsException();
         }
-
-        return getHighPriorityProduct(productEntityList);
-
+        return Optional.ofNullable(getHighPriorityProduct(productEntityList));
     }
 
     /**
      * gets high priority product from list
      *
-     * @param productEntityList
+     * @param productEntityList Lists of Entities
      * @return highestPriorityObject
      */
     private ProductEntity getHighPriorityProduct(List<ProductEntity> productEntityList) {
@@ -52,13 +51,6 @@ public class ProductRepositoryServiceImpl implements ProductServiceOut {
             }
         }
         return highestPriorityProduct;
-    }
-
-    /**
-     * @return class logger
-     */
-    protected Logger getLogger() {
-        return logger;
     }
 
 }
