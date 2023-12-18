@@ -2,8 +2,6 @@ package com.zproducts.infrastructure.adapter;
 
 import com.zproducts.application.ports.out.ProductServiceOut;
 import com.zproducts.infrastructure.entity.ProductEntity;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,6 @@ import java.util.Optional;
 @Service
 public class ProductRepositoryServiceImpl implements ProductServiceOut {
 
-    private static final Logger logger = LogManager.getLogger(ProductRepositoryServiceImpl.class);
     private final ProductRepository repository;
 
     @Autowired
@@ -25,12 +22,12 @@ public class ProductRepositoryServiceImpl implements ProductServiceOut {
     }
 
     @Override
-    public Optional<ProductEntity> getProductFromRepo(Integer productId, Integer brandId, String applyDate)  {
+    public Optional<ProductEntity> getProductFromRepo(Integer productId, Integer brandId, String applyDate) {
         List<ProductEntity> productEntityList = repository.findByProductIdAndBrandIdAndEndDateIsGreaterThanEqualAndStartDateIsLessThanEqual(productId, brandId, applyDate, applyDate);
-        if (productEntityList == null || productEntityList.isEmpty()) {
-            logger.error("Something went wrong when accessing data.");
-            throw new IndexOutOfBoundsException();
-        }
+//        if (productEntityList == null || productEntityList.isEmpty()) {
+//            logger.error("Something went wrong when accessing data.");
+//            throw new IndexOutOfBoundsException();
+//        }
         return Optional.ofNullable(getHighPriorityProduct(productEntityList));
     }
 

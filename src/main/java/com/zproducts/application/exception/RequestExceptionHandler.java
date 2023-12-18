@@ -14,13 +14,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RequestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(IndexOutOfBoundsException.class)
-    public ResponseEntity<Object> handleOutOfBoundsEx (WebRequest req, IndexOutOfBoundsException ex){
+    public ResponseEntity<Object> handleOutOfBoundsEx(WebRequest req, IndexOutOfBoundsException ex) {
         ErrorResponse response = new ErrorResponse();
         response.setStatus(HttpStatus.BAD_REQUEST);
-        response.setMessage("Unable to submit request: " + ex.getMessage());
+        response.setMessage("Unable to submit request. No data available: " + ex.getMessage());
         return buildResponse(response);
     }
-    public ResponseEntity<Object> buildResponse(ErrorResponse errorResponse){
+
+    public ResponseEntity<Object> buildResponse(ErrorResponse errorResponse) {
         return new ResponseEntity<Object>(errorResponse, errorResponse.getStatus());
     }
 
